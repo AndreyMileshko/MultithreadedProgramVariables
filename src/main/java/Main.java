@@ -25,7 +25,6 @@ public class Main {
             }
         });
         polyndromeThread.start();
-        polyndromeThread.join();
 
         Thread oneLetterWordThread = new Thread(() -> {
             for (String text : texts) {
@@ -33,7 +32,6 @@ public class Main {
             }
         });
         oneLetterWordThread.start();
-        oneLetterWordThread.join();
 
         Thread ascendingLettersThread = new Thread(() -> {
             for (String text : texts) {
@@ -41,6 +39,9 @@ public class Main {
             }
         });
         ascendingLettersThread.start();
+
+        polyndromeThread.join();
+        oneLetterWordThread.join();
         ascendingLettersThread.join();
 
         System.out.printf("""
